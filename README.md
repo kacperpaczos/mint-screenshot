@@ -23,6 +23,7 @@ Merged from GNOME Screenshot
 - [x] Add info to README to report issues
 - [x] Hardware support information
 - [x] Added configuration option for flash
+- [x] Add "snipping" to keywords
 
 
 TODO
