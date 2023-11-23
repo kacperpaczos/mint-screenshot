@@ -38,6 +38,7 @@ typedef struct {
 
   gboolean include_pointer;
   gboolean include_icc_profile;
+  gboolean no_flash;
 
   guint delay;
 
@@ -54,6 +55,7 @@ gboolean    screenshot_config_parse_command_line  (gboolean clipboard_arg,
                                                    gboolean include_border_arg,
                                                    gboolean disable_border_arg,
                                                    gboolean include_pointer_arg,
+                                                   gboolean no_flash,
                                                    const gchar *border_effect_arg,
                                                    guint delay_arg,
                                                    gboolean interactive_arg,

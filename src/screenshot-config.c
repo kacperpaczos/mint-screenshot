@@ -32,6 +32,7 @@
 #define AUTO_SAVE_DIRECTORY_KEY "auto-save-directory"
 #define LAST_SAVE_DIRECTORY_KEY "last-save-directory"
 #define DEFAULT_FILE_TYPE_KEY   "default-file-type"
+#define NO_FLASH_KEY             "no-flash"
 
 ScreenshotConfig *screenshot_config;
 
@@ -52,6 +53,9 @@ screenshot_load_config (void)
   config->include_pointer =
     g_settings_get_boolean (config->settings,
                             INCLUDE_POINTER_KEY);
+  config->no_flash =
+    g_settings_get_boolean (config->settings,
+                            NO_FLASH_KEY);
   config->file_type =
     g_settings_get_string (config->settings,
                            DEFAULT_FILE_TYPE_KEY);
@@ -91,6 +95,7 @@ screenshot_config_parse_command_line (gboolean clipboard_arg,
                                       gboolean include_border_arg,
                                       gboolean disable_border_arg,
                                       gboolean include_pointer_arg,
+                                      gboolean no_flash_arg,
                                       const gchar *border_effect_arg,
                                       guint delay_arg,
                                       gboolean interactive_arg,
@@ -143,6 +148,6 @@ screenshot_config_parse_command_line (gboolean clipboard_arg,
 
   screenshot_config->take_window_shot = window_arg;
   screenshot_config->take_area_shot = area_arg;
-
+  screenshot_config->no_flash = no_flash_arg;
   return TRUE;
 }

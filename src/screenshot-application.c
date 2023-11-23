@@ -612,6 +612,7 @@ static const GOptionEntry entries[] = {
   { "include-border", 'b', 0, G_OPTION_ARG_NONE, NULL, N_("Include the window border with the screenshot. This option is deprecated and window border is always included"), NULL },
   { "remove-border", 'B', 0, G_OPTION_ARG_NONE, NULL, N_("Remove the window border from the screenshot. This option is deprecated and window border is always included"), NULL },
   { "include-pointer", 'p', 0, G_OPTION_ARG_NONE, NULL, N_("Include the pointer with the screenshot"), NULL },
+  { "no-flash", 'F', 0, G_OPTION_ARG_NONE, NULL, N_("Disables flash on screenshot"), NULL },
   { "delay", 'd', 0, G_OPTION_ARG_INT, NULL, N_("Take screenshot after specified delay [in seconds]"), N_("seconds") },
   { "border-effect", 'e', 0, G_OPTION_ARG_STRING, NULL, N_("Effect to add to the border (‘shadow’, ‘border’, ‘vintage’ or ‘none’). Note: This option is deprecated and is assumed to be ‘none’"), N_("effect") },
   { "interactive", 'i', 0, G_OPTION_ARG_NONE, NULL, N_("Interactively set options"), NULL },
@@ -645,6 +646,7 @@ screenshot_application_command_line (GApplication            *app,
   gboolean disable_border_arg = FALSE;
   gboolean include_pointer_arg = FALSE;
   gboolean interactive_arg = FALSE;
+  gboolean no_flash_arg = screenshot_config->no_flash;
   gchar *border_effect_arg = NULL;
   guint delay_arg = 0;
   gchar *file_arg = NULL;
@@ -659,6 +661,7 @@ screenshot_application_command_line (GApplication            *app,
   g_variant_dict_lookup (options, "include-border", "b", &include_border_arg);
   g_variant_dict_lookup (options, "remove-border", "b", &disable_border_arg);
   g_variant_dict_lookup (options, "include-pointer", "b", &include_pointer_arg);
+  g_variant_dict_lookup (options, "no-flash", "b", &no_flash_arg);
   g_variant_dict_lookup (options, "interactive", "b", &interactive_arg);
   g_variant_dict_lookup (options, "border-effect", "&s", &border_effect_arg);
   g_variant_dict_lookup (options, "delay", "i", &delay_arg);
@@ -670,6 +673,7 @@ screenshot_application_command_line (GApplication            *app,
                                               include_border_arg,
                                               disable_border_arg,
                                               include_pointer_arg,
+                                              no_flash_arg,
                                               border_effect_arg,
                                               delay_arg,
                                               interactive_arg,
@@ -774,6 +778,7 @@ action_screen_shot (GSimpleAction *action,
                                         FALSE, /* include border */
                                         FALSE, /* disable border */
                                         FALSE, /* include pointer */
+                                        FALSE, /* no flash*/
                                         NULL,  /* border effect */
                                         0,     /* delay */
                                         FALSE, /* interactive */
@@ -794,6 +799,7 @@ action_window_shot (GSimpleAction *action,
                                         FALSE, /* include border */
                                         FALSE, /* disable border */
                                         FALSE, /* include pointer */
+                                        FALSE, /* no flash*/
                                         NULL,  /* border effect */
                                         0,     /* delay */
                                         FALSE, /* interactive */
