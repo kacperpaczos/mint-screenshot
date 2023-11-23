@@ -50,6 +50,18 @@
                 <property name="pack_type">end</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkButton" id="save_and_new_button">
+                <property name="label" translatable="yes">Save and _New</property>
+                <property name="visible">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_underline">True</property>
+                <signal name="clicked" handler="save_and_new_clicked_cb"/>
+              </object>
+              <packing>
+                <property name="pack_type">end</property>
+              </packing>
+            </child>
           </object>
         </child>
         <child>

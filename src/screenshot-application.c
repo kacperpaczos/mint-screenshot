@@ -398,6 +398,14 @@ save_clicked_cb (ScreenshotDialog      *dialog,
 }
 
 static void
+save_and_new_clicked_cb (ScreenshotDialog      *dialog,
+                         ScreenshotApplication *self)
+{
+  save_clicked_cb (dialog, self);
+  screenshot_show_interactive_dialog (self);
+}
+
+static void
 copy_clicked_cb (ScreenshotDialog      *dialog,
                  ScreenshotApplication *self)
 {
@@ -461,6 +469,7 @@ build_filename_ready_cb (GObject *source,
       g_signal_connect_object (self->dialog, "save", G_CALLBACK (save_clicked_cb), self, 0);
       g_signal_connect_object (self->dialog, "copy", G_CALLBACK (copy_clicked_cb), self, 0);
       g_signal_connect_object (self->dialog, "back", G_CALLBACK (back_clicked_cb), self, 0);
+      g_signal_connect_object (self->dialog, "save_and_new", G_CALLBACK (save_and_new_clicked_cb), self, 0);
     }
   else
     {

@@ -24,6 +24,7 @@ Merged from GNOME Screenshot
 - [x] Hardware support information
 - [x] Added configuration option for flash
 - [x] Add "snipping" to keywords
+- [x] Adds a "Save And New" button
 
 
 TODO

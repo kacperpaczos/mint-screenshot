@@ -48,6 +48,7 @@ enum {
   SIGNAL_SAVE,
   SIGNAL_COPY,
   SIGNAL_BACK,
+  SIGNAL_SAVE_AND_NEW,
   N_SIGNALS,
 };
 
@@ -187,6 +188,13 @@ save_clicked_cb (GtkButton        *button,
 }
 
 static void
+save_and_new_clicked_cb (GtkButton        *button,
+                         ScreenshotDialog *self)
+{
+  g_signal_emit (self, signals[SIGNAL_SAVE_AND_NEW], 0);
+}
+
+static void
 copy_clicked_cb (GtkButton        *button,
                  ScreenshotDialog *self)
 {
@@ -225,6 +233,15 @@ screenshot_dialog_class_init (ScreenshotDialogClass *klass)
                   G_TYPE_NONE,
                   0);
 
+  signals[SIGNAL_SAVE_AND_NEW] =
+    g_signal_new ("save_and_new",
+                  G_TYPE_FROM_CLASS (klass),
+                  G_SIGNAL_RUN_LAST,
+                  0,
+                  NULL, NULL, NULL,
+                  G_TYPE_NONE,
+                  0);
+
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/org/gnome/Screenshot/ui/screenshot-dialog.ui");
   gtk_widget_class_bind_template_child (widget_class, ScreenshotDialog, filename_entry);
@@ -234,6 +251,7 @@ screenshot_dialog_class_init (ScreenshotDialogClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, back_clicked_cb);
   gtk_widget_class_bind_template_callback (widget_class, save_clicked_cb);
   gtk_widget_class_bind_template_callback (widget_class, copy_clicked_cb);
+  gtk_widget_class_bind_template_callback (widget_class, save_and_new_clicked_cb);
   gtk_widget_class_bind_template_callback (widget_class, preview_draw_cb);
   gtk_widget_class_bind_template_callback (widget_class, preview_button_press_event_cb);
   gtk_widget_class_bind_template_callback (widget_class, preview_button_release_event_cb);
