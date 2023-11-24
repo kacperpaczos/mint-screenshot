@@ -38,3 +38,9 @@ TODO
 - [ ] Wayland
 - [ ] Refresh screen and about
 - [ ] Switch to c++20
+- [ ] flash, sound and saving in recent files configureable 61
+- [ ] 52 Redesign screenshot-interactive-dialog based on mockups
+- [ ] WIP: Make interactive mode default
+- [ ] 32 Fixed crashing on wayland while trying to take a window screenshot when there are no windows
+
+
