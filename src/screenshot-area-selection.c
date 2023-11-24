@@ -169,6 +169,39 @@ select_window_draw (GtkWidget *window, cairo_t *cr, gpointer unused)
                         gtk_widget_get_allocated_width (window),
                         gtk_widget_get_allocated_height (window));
 
+      cairo_select_font_face(cr, "Sans", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
+      cairo_set_font_size(cr, 10);
+
+      char buf[20];
+      char buf2[20];
+      sprintf(buf, "H:%i", gtk_widget_get_allocated_height (window));
+      sprintf(buf2, "W:%i", gtk_widget_get_allocated_width (window));
+
+      cairo_move_to(cr,
+                    gtk_widget_get_allocated_width (window) - 50,
+                    gtk_widget_get_allocated_height (window) - 20);
+      cairo_set_source_rgba (cr, 0.0, 0.0, 0.0, 1.0);
+      cairo_show_text(cr, buf);
+
+      cairo_move_to(cr,
+                    gtk_widget_get_allocated_width (window) - 51,
+                    gtk_widget_get_allocated_height (window) - 21);
+      cairo_set_source_rgba (cr, 1.0, 1.0, 1.0, 1.0);
+      cairo_show_text(cr, buf);
+
+      cairo_move_to(cr,
+                    gtk_widget_get_allocated_width (window) - 50,
+                    gtk_widget_get_allocated_height (window) - 10);
+      cairo_set_source_rgba (cr, 0.0, 0.0, 0.0, 1.0);
+      cairo_show_text(cr, buf2);
+
+      cairo_move_to(cr,
+                    gtk_widget_get_allocated_width (window) - 51,
+                    gtk_widget_get_allocated_height (window) - 11);
+      cairo_set_source_rgba (cr, 1.0, 1.0, 1.0, 1.0);
+      cairo_show_text(cr, buf2);
+
+
       gtk_style_context_restore (style);
     }
 

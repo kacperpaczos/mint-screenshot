@@ -25,6 +25,7 @@ Merged from GNOME Screenshot
 - [x] Added configuration option for flash
 - [x] Add "snipping" to keywords
 - [x] Adds a "Save And New" button
+- [x] Adjust to small screensize
 
 
 TODO
@@ -36,3 +37,4 @@ TODO
 - [ ] Series of photos
 - [ ] Wayland
 - [ ] Refresh screen and about
+- [ ] Switch to c++20

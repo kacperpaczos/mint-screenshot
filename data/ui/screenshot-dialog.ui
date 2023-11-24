@@ -45,6 +45,15 @@
                 <property name="receives_default">True</property>
                 <property name="use_underline">True</property>
                 <signal name="clicked" handler="copy_clicked_cb"/>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">C_opy to Clipboard</property>
+                    <property name="ellipsize">middle</property>
+                    <property name="use-underline">True</property>
+                    <property name="mnemonic-widget">copy_button</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="pack_type">end</property>
@@ -108,7 +117,7 @@
                 <child>
                   <object class="GtkEntry" id="filename_entry">
                     <property name="visible">True</property>
-                    <property name="width_chars">35</property>
+                    <property name="width_chars">20</property>
                     <property name="activates-default">True</property>
                   </object>
                   <packing>

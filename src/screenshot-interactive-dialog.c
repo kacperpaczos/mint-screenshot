@@ -147,6 +147,7 @@ screenshot_interactive_dialog_class_init (ScreenshotInteractiveDialogClass *klas
 static void
 screenshot_interactive_dialog_init (ScreenshotInteractiveDialog *self)
 {
+  const char *current_desktop;
   gtk_widget_init_template (GTK_WIDGET (self));
 
   if (screenshot_config->take_window_shot)
@@ -157,6 +158,14 @@ screenshot_interactive_dialog_init (ScreenshotInteractiveDialog *self)
 
   gtk_widget_set_sensitive (self->pointer_row, !screenshot_config->take_area_shot);
   gtk_switch_set_active (GTK_SWITCH (self->pointer), screenshot_config->include_pointer);
+
+  current_desktop = g_getenv ("XDG_CURRENT_DESKTOP");
+  if (current_desktop)
+  {
+      g_auto (GStrv) desktops = g_strsplit (current_desktop, ":", -1);
+      if (g_strv_contains ((const char * const *)desktops, "Phosh"))
+	    gtk_widget_set_visible (self->window, FALSE);
+  }
 
   gtk_adjustment_set_value (self->delay_adjustment, (gdouble) screenshot_config->delay);
 }

@@ -582,7 +582,7 @@ rectangle_found_cb (GdkRectangle *rectangle,
 
   if (rectangle != NULL)
     {
-      self->rectangle = g_memdup (rectangle, sizeof *rectangle);
+      self->rectangle = g_memdup2 (rectangle, sizeof *rectangle);
       start_screenshot_timeout (self);
     }
   else

@@ -13,6 +13,7 @@ Categories=GTK;GNOME;Utility;X-GNOME-Utilities;
 NotShowIn=KDE;
 Actions=screen-shot;window-shot;
 DBusActivatable=true
+X-Purism-FormFactor=Workstation;Mobile;
 
 [Desktop Action screen-shot]
 Name=Take a Screenshot of the Whole Screen
