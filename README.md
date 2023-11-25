@@ -44,3 +44,5 @@ TODO
 - [ ] 32 Fixed crashing on wayland while trying to take a window screenshot when there are no windows
 
 
+libhandy-1-dev
+libgtk-3-dev
