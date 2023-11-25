@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.0 -->
 <interface>
-  <requires lib="gtk+" version="3.20"/>
-  <template class="ScreenshotInteractiveDialog" parent="HdyApplicationWindow">
-    <property name="resizable">True</property>
-    <property name="window-position">center</property>
+  <requires lib="gtk" version="4.0"/>
+  <template class="ScreenshotInteractiveDialog" parent="GtkApplicationWindow">
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="HdyHeaderBar">
-            <property name="visible">True</property>
-            <property name="show_close_button">True</property>
+          <object class="GtkHeaderBar">
             <child>
               <object class="GtkButton" id="capture_button">
-                <property name="label" translatable="yes">_Take Screenshot</property>
-                <property name="visible">True</property>
-                <property name="receives_default">True</property>
+                <property name="label" translatable="1">_Take Screenshot</property>
+                <property name="receives_default">1</property>
                 <property name="action_name">app.screen-shot</property>
-                <property name="use_underline">True</property>
-                <property name="can-default">True</property>
+                <property name="use_underline">1</property>
                 <signal name="clicked" handler="capture_button_clicked_cb"/>
                 <style>
                   <class name="suggested-action"/>
@@ -30,75 +21,66 @@
             </child>
             <child>
               <object class="GtkMenuButton" id="menu">
-                <property name="visible">True</property>
-                <property name="receives_default">True</property>
-                <property name="menu-model">primary_menu</property>
+                <property name="receives_default">1</property>
+                <property name="menu_model">primary_menu</property>
                 <child>
                   <object class="GtkImage">
-                    <property name="visible">True</property>
                     <property name="icon_name">open-menu-symbolic</property>
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="pack_type">end</property>
-              </packing>
             </child>
           </object>
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="spacing">24</property>
-            <property name="margin">24</property>
+            <property name="margin-start">24</property>
+            <property name="margin-end">24</property>
+            <property name="margin-top">24</property>
+            <property name="margin-bottom">24</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkLabel">
-                    <property name="visible">True</property>
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes" comments="Translators: This is a noun. This label is displayed above three buttons where users can chose the type of screenshot they want to make">Capture Area</property>
+                    <property name="label" translatable="1" comments="Translators: This is a noun. This label is displayed above three buttons where users can chose the type of screenshot they want to make">Capture Area</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="homogeneous">True</property>
+                    <property name="homogeneous">1</property>
                     <style>
                       <class name="linked"/>
                     </style>
                     <child>
-                      <object class="GtkRadioButton" id="screen">
-                        <property name="visible">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="draw_indicator">False</property>
+                      <object class="GtkToggleButton" id="screen">
+                        <property name="receives_default">1</property>
                         <property name="group">selection</property>
                         <signal name="toggled" handler="screen_toggled_cb"/>
                         <child>
                           <object class="GtkBox">
-                            <property name="visible">True</property>
-                            <property name="margin">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkImage" id="screen_img">
-                                <property name="visible">True</property>
                                 <property name="icon_name">display-symbolic</property>
                                 <property name="pixel_size">32</property>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="label" translatable="yes">_Screen</property>
-                                <property name="use_underline">True</property>
+                                <property name="label" translatable="1">_Screen</property>
+                                <property name="use_underline">1</property>
                                 <property name="mnemonic_widget">screen</property>
                               </object>
                             </child>
@@ -107,31 +89,29 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkRadioButton" id="window">
-                        <property name="visible">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="active">True</property>
-                        <property name="draw_indicator">False</property>
+                      <object class="GtkToggleButton" id="window">
+                        <property name="receives_default">1</property>
+                        <property name="active">1</property>
                         <property name="group">screen</property>
                         <signal name="toggled" handler="window_toggled_cb"/>
                         <child>
                           <object class="GtkBox">
-                            <property name="visible">True</property>
-                            <property name="margin">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkImage" id="window_img">
-                                <property name="visible">True</property>
                                 <property name="icon_name">window-symbolic</property>
                                 <property name="pixel_size">32</property>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="label" translatable="yes">_Window</property>
-                                <property name="use_underline">True</property>
+                                <property name="label" translatable="1">_Window</property>
+                                <property name="use_underline">1</property>
                                 <property name="mnemonic_widget">window</property>
                               </object>
                             </child>
@@ -140,30 +120,28 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkRadioButton" id="selection">
-                        <property name="visible">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="draw_indicator">False</property>
+                      <object class="GtkToggleButton" id="selection">
+                        <property name="receives_default">1</property>
                         <property name="group">screen</property>
                         <signal name="toggled" handler="selection_toggled_cb"/>
                         <child>
                           <object class="GtkBox">
-                            <property name="visible">True</property>
-                            <property name="margin">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkImage" id="selection_img">
-                                <property name="visible">True</property>
                                 <property name="icon_name">selection-symbolic</property>
                                 <property name="pixel_size">32</property>
                               </object>
                             </child>
                             <child>
                               <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="label" translatable="yes">Se_lection</property>
-                                <property name="use_underline">True</property>
+                                <property name="label" translatable="1">Se_lection</property>
+                                <property name="use_underline">1</property>
                               </object>
                             </child>
                           </object>
@@ -176,21 +154,16 @@
             </child>
             <child>
               <object class="GtkListBox" id="listbox">
-                <property name="visible">True</property>
                 <property name="selection_mode">none</property>
                 <property name="width_request">300</property>
                 <style>
                   <class name="content"/>
                 </style>
                 <child>
-                  <object class="HdyActionRow" id="pointer_row">
-                    <property name="visible">True</property>
-                    <property name="title" translatable="yes">Show _Pointer</property>
-                    <property name="use_underline">True</property>
-                    <property name="activatable-widget">pointer</property>
+                  <object class="GtkActionRow" id="pointer_row">
+                    <property name="title" translatable="1">Show _Pointer</property>
                     <child>
                       <object class="GtkSwitch" id="pointer">
-                        <property name="visible">True</property>
                         <property name="valign">center</property>
                         <signal name="state-set" handler="include_pointer_toggled_cb"/>
                       </object>
@@ -198,21 +171,17 @@
                   </object>
                 </child>
                 <child>
-                  <object class="HdyActionRow">
-                    <property name="visible">True</property>
-                    <property name="title" translatable="yes">_Delay in Seconds</property>
-                    <property name="use_underline">True</property>
+                  <object class="GtkActionRow">
+                    <property name="title" translatable="1">_Delay in Seconds</property>
                     <child>
                       <object class="GtkSpinButton" id="delay">
-                        <property name="visible">True</property>
-                        <property name="text" translatable="yes">0</property>
-                        <property name="input_purpose">number</property>
+                        <property name="text" translatable="1">0</property>
                         <property name="adjustment">delay_adjustment</property>
                         <property name="climb_rate">1</property>
-                        <property name="snap_to_ticks">True</property>
-                        <property name="numeric">True</property>
+                        <property name="snap_to_ticks">1</property>
+                        <property name="numeric">1</property>
                         <property name="valign">center</property>
-                        <signal name= "value-changed" handler="delay_spin_value_changed_cb"/>
+                        <signal name="value-changed" handler="delay_spin_value_changed_cb"/>
                       </object>
                     </child>
                   </object>
@@ -225,7 +194,6 @@
     </child>
   </template>
   <object class="GtkAdjustment" id="delay_adjustment">
-    <property name="lower">0</property>
     <property name="upper">99</property>
     <property name="step-increment">1</property>
     <property name="page-increment">1</property>
